@@ -15,8 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary verydark-background">
             <div class="container-fluid">
-                <a class="anton label navbar-brand border light-border rounded verylight-background bright-words px-3 ms-3 my-3"
-                    href="#">The Tech Blog</a>
+                <div class="anton label navbar-brand border light-border rounded verylight-background bright-words px-3 ms-3 my-3">The Tech Blog</div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="">
@@ -25,19 +24,19 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end me-3" id="navbarNav">
                     <ul class="navbar-nav">
-                        {{#if logged_in}}
                         <li class="nav-item">
-                            <a class="anton nav-link active bright-words" aria-current="page" href="#">Homepage</a>
+                            <a class="anton nav-link active bright-words" aria-current="page" href="/">Homepage</a>
                         </li>
+                        {{#if logged_in}}
                         <li class="anton nav-item">
-                            <a class="nav-link bright-words" href="#">Dashboard</a>
+                            <a class="nav-link bright-words" href="dashboard">Dashboard</a>
                         </li>
                         <li class="anton nav-item">
                             <a class="nav-link bright-words" href="#">Logout</a>
                         </li>
                         {{else}}
                         <li class="anton nav-item">
-                            <a class="nav-link bright-words" href="#">Login</a>
+                            <a class="nav-link bright-words" href="login">Login</a>
                         </li>
                         {{/if}}
                     </ul>
