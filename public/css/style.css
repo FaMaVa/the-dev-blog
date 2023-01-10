@@ -1,0 +1,69 @@
+:root {
+    --verylight: rgb(208, 197, 249);
+    --light: rgb(204, 44, 215);
+    --bright: rgb(236, 57, 37); 
+    --dark: rgb(94, 81, 141);
+    --verydark:  rgb(35, 28, 60);
+}
+
+.anton {
+    font-family: 'Anton', sans-serif !important;
+}
+
+.bright-background {
+    background-color: var(--bright) !important;
+}
+
+.bright-border {
+    border-color: var(--bright) !important;
+    border-width: 3px !important;
+}
+
+.bright-words {
+    color: var(--bright) !important;
+}
+
+.btn:focus,
+.form-control:focus {
+    border-color: rgb(235, 126, 243);
+    border-width: 2px !important;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, var(--light);
+}
+
+.dark-background {
+    background-color: var(--dark) !important;
+}
+
+.dark-words {
+    color: var(--dark) !important;
+}
+
+.light-background {
+    background-color: var(--light) !important;
+}
+
+.light-border {
+    border-color: var(--light) !important;
+    border-width: 5px !important;
+}
+
+.light-words {
+    color: var(--light) !important;
+}
+
+.new-post {
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+}
+
+.verydark-background {
+    background-color: var(--verydark) !important;
+}
+
+.verylight-background {
+    background-color: var(--verylight) !important;
+}
+
+.verylight-words {
+    color: var(--verylight) !important;
+}
