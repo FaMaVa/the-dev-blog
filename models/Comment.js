@@ -11,10 +11,10 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    comment_content: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    comment_date: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,

@@ -1,0 +1,26 @@
+[
+    {
+        "post_title": "HTML",
+        "post_content": "the markup language for creating webpages",
+        "post_date": "2022-08-22",
+        "user_id": 1
+    },
+    {
+        "post_title": "CSS",
+        "post_content": "used to style and layout webpages",
+        "post_date": "2022-09-03",
+        "user_id": 2
+    },
+    {
+        "post_title": "JavaScript",
+        "post_content": "used create dynamic webpages",
+        "post_date": "2022-09-27",
+        "user_id": 3
+    },
+    {
+        "post_title": "Coding Bootcamp",
+        "post_content": "a great way to learn coding quick",
+        "post_date": "2022-12-11",
+        "user_id": 4
+    }
+]
