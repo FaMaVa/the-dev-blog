@@ -6,7 +6,7 @@
                 <div class=" card-header d-flex justify-content-between align-items-start rounded-0
                 light-words verydark-background">
                 <a class="light-words" style= "text-decoration: none;" href="/post/{{id}}">{{post.post_title}}</a>
-                    <span class="dark-words align-text-bottom">Posted by {{post.user.username}} on {{post.post_date}}</span>
+                    <span class="dark-words align-text-bottom">Posted by {{post.user.username}} on {{format_date post.post_date}}</span>
                 </div>
                 <div class="card-body">{{post.post_content}}</div>
             </li>

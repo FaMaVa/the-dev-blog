@@ -3,7 +3,7 @@
         <div class="card col-10 anton bright-border verylight-background mt-4" style="padding: 0;">
             <div
                 class="card-header d-flex justify-content-between align-items-start rounded-0 light-words verydark-background">
-                {{post_title}}<span class="dark-words align-text-bottom">Posted by {{user.username}} on {{post_date}}</span>
+                {{post_title}}<span class="dark-words align-text-bottom">Posted by {{user.username}} on {{format_date post_date}}</span>
             </div>
             <div class="card-body">{{content}}</div>
         </div>
