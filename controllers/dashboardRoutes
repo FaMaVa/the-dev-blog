@@ -1,0 +1,37 @@
+const router = require('express').Router()
+const { Post } = require('../models');
+
+// TO DO add withAuth middleware
+
+
+router.get('/', async (req, res) => {
+    Post.findAll({
+        // where: { user_id: req.params.id },
+    })
+        .then((postData) => {
+            const posts = postData.map((post) => post.get({ plain: true }));
+            res.render('dashboard', { posts });
+        })
+        .catch(err => {
+            res.json(err);
+        });
+})
+
+router.get('/create', async (req, res) => {
+    res.render('create');
+})
+
+router.get('/update/:id', async (req, res) => {
+    Post.findOne({
+        where: { id: req.params.id }
+    })
+        .then((postData) => {
+            const post = postData.get({ plain: true });
+            res.render('update', post);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+})
+
+module.exports = router;

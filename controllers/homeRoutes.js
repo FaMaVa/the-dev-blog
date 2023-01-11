@@ -28,7 +28,6 @@ router.get('/post/:id', async (req, res) => {
     })
         .then((postData) => {
             const post = postData.get({ plain: true });
-            console.log(post);
             res.render('post', post);
         })
         .catch(err => {
@@ -43,38 +42,7 @@ router.get('/comment/:id', async (req, res) => {
     })
         .then((postData) => {
             const post = postData.get({ plain: true });
-            console.log(post);
             res.render('comment', post);
-        })
-        .catch(err => {
-            res.json(err);
-        });
-})
-
-router.get('/dashboard/:id', async (req, res) => {
-    Post.findAll({
-        where: { user_id: req.params.id },
-    })
-        .then((postData) => {
-            const posts = postData.map((post) => post.get({ plain: true }));
-            res.render('dashboard', { posts });
-        })
-        .catch(err => {
-            res.json(err);
-        });
-})
-
-router.get('/dashboard/create', async (req, res) => {
-    res.render('create');
-})
-
-router.get('/dashboard/update/:id', async (req, res) => {
-    Post.findOne({
-        where: { id: req.params.id }
-    })
-        .then((postData) => {
-            const post = postData.get({ plain: true });
-            res.render('update', post);
         })
         .catch(err => {
             res.json(err);

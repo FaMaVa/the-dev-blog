@@ -6,19 +6,21 @@
             <div class="card-body">
                 <form style="margin-bottom: 0;">
                     <div class="mb-3">
-                        <label for="yourTitle" class="form-label dark-words">Title</label>
-                        <input type="text" class="form-control" id="yourTitle" value="{{post_title}}"></input>
+                        <label for="title" class="form-label dark-words">Title</label>
+                        <input type="text" class="form-control" id="title" value="{{post_title}}"></input>
                     </div>
                     <div class="mb-3">
-                        <label for="yourContent" class="form-label dark-words">Content</label>
-                        <textarea class="form-control" id="yourContent" rows="3">{{post_content}}</textarea>
+                        <label for="content" class="form-label dark-words">Content</label>
+                        <textarea class="form-control" id="content" rows="3">{{post_content}}</textarea>
                     </div>
-                    <button type="submit" class="btn mb-1 verydark-background bright-words" style="width: 100%;">Update
+                    <button type="submit" class="update btn mb-1 verydark-background bright-words" style="width: 100%;">Update
                         Post</button>
-                    <button type="submit" class="btn mt-1 verydark-background bright-words"
+                    <button type="submit" class="delete btn mt-1 verydark-background bright-words"
                         style="width: 100%;">Delete</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script src="./js/post.js"></script>
