@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     Post.findAll({
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
         });
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     Post.findOne({
         where: { id: req.params.id },
         include: [ 
@@ -35,7 +36,7 @@ router.get('/post/:id', async (req, res) => {
         });
 });
 
-router.get('/comment/:id', async (req, res) => {
+router.get('/comment/:id', withAuth, async (req, res) => {
     Post.findOne({
         where: { id: req.params.id },
         include: { model: User }

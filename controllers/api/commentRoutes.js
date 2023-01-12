@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // TO DO ADD WITH AUTH
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     // create a new category
     Comment.create({
         comment_content: req.body.comment_content,
