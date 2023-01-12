@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
     })
         .then((postData) => {
             const posts = postData.map((post) => post.get({ plain: true }));
-            res.render('dashboard', { posts });
+            res.render('dashboard', { posts, logged_In: req.session.logged_in });
         })
         .catch(err => {
             res.json(err);
@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
 })
 
 router.get('/create', withAuth, async (req, res) => {
-    res.render('create');
+    res.render('create',  { logged_In: req.session.logged_in });
 })
 
 router.get('/update/:id', withAuth, async (req, res) => {
@@ -29,7 +29,7 @@ router.get('/update/:id', withAuth, async (req, res) => {
     })
         .then((postData) => {
             const post = postData.get({ plain: true });
-            res.render('update', post);
+            res.render('update', { post,  logged_In: req.session.logged_in });
         })
         .catch(err => {
             res.json(err);

@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     })
         .then((postData) => {
             const posts = postData.map((post) => post.get({ plain: true }));
-            res.render('homepage', { posts });
+            res.render('homepage', { posts , logged_In: req.session.logged_in});
         })
         .catch(err => {
             res.json(err);
@@ -51,10 +51,20 @@ router.get('/comment/:id', withAuth, async (req, res) => {
 })
 
 router.get('/login', async (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+      }
+
     res.render('login');
 })
 
 router.get('/signup', async (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+      }
+
     res.render('signup');
 })
 
