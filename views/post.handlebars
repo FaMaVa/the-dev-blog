@@ -3,11 +3,11 @@
         <div class="card col-10 anton bright-border verylight-background mt-4" style="padding: 0;">
             <div
                 class="card-header d-flex justify-content-between align-items-start rounded-0 light-words verydark-background">
-                {{post_title}}<span class="dark-words align-text-bottom">Posted by {{user.username}} on {{format_date post_date}}</span>
+                {{post.post_title}}<span class="dark-words align-text-bottom">Posted by {{post.user.username}} on {{format_date post.post_date}}</span>
             </div>
             <div class="card-body">{{post_content}}</div>
         </div>
-        {{#each comments as |comment|}}
+        {{#each post.comments as |comment|}}
         <div class="card col-10 my-3 anton bright-border verylight-background" style="padding: 0;">
             <div class="card-header rounded-0 verydark-background"></div>
             <div class="card-body">
