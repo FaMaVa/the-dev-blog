@@ -11,6 +11,10 @@
   "keywords": [],
   "author": "famava",
   "license": "ISC",
+  "engines": {
+    "npm": "9.2.0",
+    "node": "19.4.0"
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
