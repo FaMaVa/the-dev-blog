@@ -1,26 +1,12 @@
-{{#if logged_in}}
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="card my-5 anton verydark-words bright-border verylight-background" style="padding: 0;">
-            <div class="card-body">
-                <div class="form-text">
-                    You are Logged In!
-                    <a class="light-words" href="login">here!</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{else}}
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="card col-6 my-3 anton bright-words light-border verylight-background" style="padding: 0;">
             <div class="card-header rounded-0 verydark-background" style="font-size: 1.25rem;">Login</div>
             <div class="card-body">
-                <form class="loginForm" style="margin-bottom: 0;">
+                <form class="login-Form" style="margin-bottom: 0;">
                     <div class="mb-3">
                         <label for="inputUsername" class="form-label">Username</label>
-                        <input type="email" class="form-control" id="inputUsername"></input>
+                        <input type="text" class="form-control" id="inputUsername"></input>
                     </div>
                     <div class="mb-3">
                         <label for="inputPassword" class="form-label">Password</label>
@@ -36,6 +22,5 @@
         </div>
     </div>
 </div>
-{{/if}}
 
-<script src="./js/login.js"></script>
+<script src="/js/login.js"></script>

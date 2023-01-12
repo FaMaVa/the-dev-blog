@@ -2,8 +2,6 @@ const router = require('express').Router()
 const { Post } = require('../models');
 const withAuth = require('../utils/auth');
 
-// TO DO add withAuth middleware
-
 
 router.get('/', withAuth, async (req, res) => {
     Post.findAll({
