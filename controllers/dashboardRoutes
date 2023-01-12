@@ -6,7 +6,7 @@ const { Post } = require('../models');
 
 router.get('/', async (req, res) => {
     Post.findAll({
-        // where: { user_id: req.params.id },
+        where: { user_id: req.session.user_id },
     })
         .then((postData) => {
             const posts = postData.map((post) => post.get({ plain: true }));
@@ -23,7 +23,9 @@ router.get('/create', async (req, res) => {
 
 router.get('/update/:id', async (req, res) => {
     Post.findOne({
-        where: { id: req.params.id }
+        where: { 
+            id: req.params.id,
+        }
     })
         .then((postData) => {
             const post = postData.get({ plain: true });

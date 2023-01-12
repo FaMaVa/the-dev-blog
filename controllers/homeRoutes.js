@@ -28,7 +28,7 @@ router.get('/post/:id', async (req, res) => {
     })
         .then((postData) => {
             const post = postData.get({ plain: true });
-            res.render('post', post);
+            res.render('post', { post, loggedIn: req.session.logged_in});
         })
         .catch(err => {
             res.json(err);
@@ -42,7 +42,7 @@ router.get('/comment/:id', async (req, res) => {
     })
         .then((postData) => {
             const post = postData.get({ plain: true });
-            res.render('comment', post);
+            res.render('comment', { post, loggedIn: req.session.logged_in});
         })
         .catch(err => {
             res.json(err);

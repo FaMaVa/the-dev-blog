@@ -18,8 +18,8 @@
         "user_id": 3
     },
     {
-        "post_title": "Coding Bootcamp",
-        "post_content": "a great way to learn coding quick",
+        "post_title": "Object Oriented Programming",
+        "post_content": "a computer programming model that organizes software design around data, or objects",
         "post_date": "2022-12-11",
         "user_id": 4
     }

@@ -1,9 +1,11 @@
+{{#if logged_in}}
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="card col-10 anton bright-border verylight-background mt-4" style="padding: 0;">
             <div
                 class="card-header d-flex justify-content-between align-items-start rounded-0 light-words verydark-background">
-                {{post_title}}<span class="dark-words align-text-bottom">Posted by {{user.username}} on {{format_date post_date}}</span>
+                {{post_title}}<span class="dark-words align-text-bottom">Posted by {{user.username}} on {{format_date
+                    post_date}}</span>
             </div>
             <div class="card-body">{{post_content}}</div>
         </div>
@@ -12,14 +14,31 @@
             <div class="card-header rounded-0 verydark-background"></div>
             <div class="card-body">
                 <div>{{comment.comment_content}}</div>
-                <div class="mt-3 dark-words">-{{comment.user.username}}, {{format_date 0comment.comment_date}}</div>
+                <div class="mt-3 dark-words">-{{comment.user.username}}, {{format_date comment.comment_date}}</div>
             </div>
         </div>
         {{/each}}
     </div>
 </div>
 <div class="row justify-content-center">
-    <a type="button" class="btn btn-lg mb-3 px- anton light-background verydark-words" href="/comment/{{id}}">Comment on Post</a>
+    <a type="button" class="btn btn-lg mb-3 px- anton light-background verydark-words" href="/comment/{{id}}">Comment on
+        Post</a>
 </div>
+{{else}}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card my-5 anton verydark-words bright-border verylight-background" style="padding: 0;">
+            <div class="card-body">
+                <div class="form-text">
+                    To view this page, please Login
+                    <a class="light-words" href="login">here!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
 
+{{#if logged_in}}
 <script src="./js/post.js"></script>
+{{/if}}

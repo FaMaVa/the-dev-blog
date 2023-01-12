@@ -60,6 +60,10 @@
     background-color: var(--verydark) !important;
 }
 
+.verydark-words {
+    color: var(--verydark) !important;
+}
+
 .verylight-background {
     background-color: var(--verylight) !important;
 }

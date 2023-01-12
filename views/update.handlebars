@@ -1,3 +1,4 @@
+{{#if logged_in}}
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="card col-10 my-3 anton light-border verylight-background" style="padding: 0;">
@@ -13,7 +14,8 @@
                         <label for="content" class="form-label dark-words">Content</label>
                         <textarea class="form-control" id="content" rows="3">{{post_content}}</textarea>
                     </div>
-                    <button type="submit" class="update btn mb-1 verydark-background bright-words" style="width: 100%;">Update
+                    <button type="submit" class="update btn mb-1 verydark-background bright-words"
+                        style="width: 100%;">Update
                         Post</button>
                     <button type="submit" class="delete btn mt-1 verydark-background bright-words"
                         style="width: 100%;">Delete</button>
@@ -22,5 +24,21 @@
         </div>
     </div>
 </div>
+{{else}}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card my-5 anton verydark-words bright-border verylight-background" style="padding: 0;">
+            <div class="card-body">
+                <div class="form-text">
+                    To view this page, please Login
+                    <a class="light-words" href="login">here!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
 
+{{#if logged_in}}
 <script src="./js/post.js"></script>
+{{/if}}
