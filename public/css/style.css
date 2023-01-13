@@ -8,6 +8,8 @@
 
 .anton {
     font-family: "Lucida Console", "Courier New", monospace !important;
+    font-weight: bolder;
+    font-size: large;
 }
 
 .bright-background {
