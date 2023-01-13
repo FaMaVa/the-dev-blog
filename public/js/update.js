@@ -3,9 +3,11 @@ const updatePostHandler = async (event) => {
 
     const post_title = document.querySelector('#title').value.trim();
     const post_content = document.querySelector('#content').value.trim();
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
 
-    if (post_title && description) {
-        const response = await fetch(`/api/post/${id}`, {
+    const response = await fetch(`/api/post/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ post_title, post_content }),
             headers: {
@@ -14,12 +16,11 @@ const updatePostHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard/');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to update post');
         }
-    }
-};
+    };
 
 document
     .querySelector('.update')
@@ -27,19 +28,28 @@ document
 
 
 const delPostHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+    event.preventDefault();
+    
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
 
-        const response = await fetch(`/api/post/${id}`, {
-            method: 'DELETE',
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to delete project');
+    const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+          post_id: id
+        }),
+        headers: {
+          'Content-Type': 'application/json'
         }
-    }
+      });
+      
+      if (response.ok) {
+        document.location.replace('/dashboard/');
+      } else {
+        alert(response.statusText);
+      }
+    
 };
 
 document

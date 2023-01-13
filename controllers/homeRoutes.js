@@ -9,14 +9,9 @@ router.get('/', async (req, res) => {
                 { model: User }
         });
 
-        if (!postData) {
-            res.status(404).json({ message: "That Post doesn't exist!" });
-            return;
-        };
-
         const posts = postData.map((post) => post.get({ plain: true }));
 
-        res.render('homepage', { posts });
+        res.render('homepage', { posts,  loggedIn: req.session.loggedIn });
 
     } catch (err) {
         res.status(500).json(err);
@@ -36,11 +31,6 @@ router.get('/post/:id', withAuth, async (req, res) => {
             ]
         });
 
-        if (!postData) {
-            res.status(404).json({ message: "That Post doesn't exist!" });
-            return;
-        };
-
         const post = postData.get({ plain: true });
 
         res.render('post', { post, loggedIn: req.session.loggedIn });
@@ -58,11 +48,6 @@ router.get('/comment/:id', withAuth, async (req, res) => {
             where: { id: req.params.id },
             include: { model: User }
         });
-
-        if (!postData) {
-            res.status(404).json({ message: "That Post doesn't exist!" });
-            return;
-        };
 
         const post = postData.get({ plain: true });
 

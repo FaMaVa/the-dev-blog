@@ -6,13 +6,8 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
-            where: { user_id: req.session.user_id },
+            where: { user_id: req.session.user_id }
         });
-
-        if (!postData) {
-            res.status(404).json({ message: "That Post doesn't exist!" });
-            return;
-        };
 
         const posts = postData.map((post) => post.get({ plain: true }));
         
@@ -31,16 +26,12 @@ router.get('/update/:id', withAuth, async (req, res) => {
         const postData = await Post.findOne({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
             }
         });
 
-        if (!postData) {
-            res.status(404).json({ message: "That Post doesn't exist!" });
-            return;
-        }
+        const post = await postData.get({ plain: true });
 
-        const post = postData.get({ plain: true });
+        console.log(post);
 
         res.render('update', { post, loggedIn: req.session.loggedIn });
 

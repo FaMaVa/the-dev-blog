@@ -2,10 +2,16 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   // create a new category
   try {
-    const postData = await Post.create(req.body);
+    const postData = await Post.create
+    ({
+      ...req.body, 
+      user_id: req.session.user_Id
+    });
+    const post = postData.get({ plain: true });
+    console.log(post);
     res.status(200).json(postData);
   } catch (error) {
     res.status(500).json(error);
@@ -13,7 +19,7 @@ router.post('/', async (req, res) => {
 });
 
 // update a category by its `id` value
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.update(req.body, {
       where: {
@@ -30,7 +36,7 @@ router.put('/:id', async (req, res) => {
   };
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   // delete a category by its `id` value
   try {
     const postData = await Post.destroy({
@@ -38,12 +44,6 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id,
       },
     });
-
-    // Return Error Message if no product is found
-    if (!postData) {
-      res.status(404).json({ message: "That Post doesn't exist!" });
-      return;
-    }
 
     // Else Return Product Object
     res.status(200).json(postData);
