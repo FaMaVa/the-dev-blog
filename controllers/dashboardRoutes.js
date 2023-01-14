@@ -31,8 +31,6 @@ router.get('/update/:id', withAuth, async (req, res) => {
 
         const post = await postData.get({ plain: true });
 
-        console.log(post);
-
         res.render('update', { post, loggedIn: req.session.loggedIn });
 
     } catch (err) {

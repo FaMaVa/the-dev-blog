@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 // TO DO ADD WITH AUTH
-router.post('/', withAuth, async (req, res) => {
+router.post('/:id', async (req, res) => {
     try {
-      const commentData = await Comment.create({...req.body, userId: req.session.userId});
+      const commentData = await Comment.create(
+        {...req.body, 
+          user_id: req.session.user_id, 
+          post_id:req.params.id});
       res.status(200).json(commentData);
     } catch (error) {
       res.status(500).json(error);
