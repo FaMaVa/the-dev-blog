@@ -6,7 +6,6 @@ const logoutHandler = async () => {
 
   if (response.ok) {
     document.location.reload(true);
-    document.location.reload(true);
   } else {
     alert(response.statusText);
   }
